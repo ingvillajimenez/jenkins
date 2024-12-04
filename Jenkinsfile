@@ -36,6 +36,7 @@ pipeline {
             sh '''
               sonar-scanner \
                 -Dsonar.host.url=http://sonarqube:9000
+                -Dsonar.token=squ_0940924d3a883f289a3063eee1dbfe57d2c34c5c
             '''
           }
         }
