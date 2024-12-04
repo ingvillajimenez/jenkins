@@ -29,6 +29,16 @@ pipeline {
       }
     }
 
+    stage ('sonarqube') {
+      steps {
+        scripts {
+          docker.image('sonarsource/sonar-scanner-cli:latest').inside {
+            sh 'sonar-scanner'
+          }
+        }
+      }
+    }
+
     // stage('Deploy') {
     //   steps {
     //     sh './deploy.sh'
