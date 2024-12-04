@@ -35,7 +35,9 @@ pipeline {
           docker.image('sonarsource/sonar-scanner-cli:5.0.1').inside('--network ci-network') {
             sh '''
               sonar-scanner \
-                -Dsonar.host.url=http://sonarqube:9000
+                -Dsonar.host.url=http://sonarqube:9000 \
+                -Dsonar.projectKey=jenkins-php \
+                -Dsonar.src=src \
                 -Dsonar.token=squ_0940924d3a883f289a3063eee1dbfe57d2c34c5c
             '''
           }
