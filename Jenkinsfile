@@ -1,6 +1,10 @@
 pipeline {
   // agent { label 'ubuntu' }
   agent any
+
+  environment {
+    SONAR_TOKEN = credentials('sonarqube')
+  }
   
   stages {
     stage('Verificar tools') {
@@ -38,7 +42,7 @@ pipeline {
                 -Dsonar.host.url=http://sonarqube:9000 \
                 -Dsonar.projectKey=jenkins-php \
                 -Dsonar.src=src \
-                -Dsonar.token=squ_0940924d3a883f289a3063eee1dbfe57d2c34c5c
+                -Dsonar.token=$SONAR_TOKEN
             '''
           }
         }
