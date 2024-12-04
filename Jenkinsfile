@@ -18,7 +18,7 @@ pipeline {
     stage('Run docker') {
       steps {
         // sh 'docker run -dit --name app-test-jenkins app-test-jenkins'
-        sh 'docker run -dit --namme app-jenkins app-jenkins'
+        sh 'docker run -dit --name app-jenkins app-jenkins'
       }
     }
 
